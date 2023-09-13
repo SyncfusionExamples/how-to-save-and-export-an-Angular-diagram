@@ -1,0 +1,127 @@
+<button ejs-button (click)="onSave()">Save</button>
+<button ejs-button (click)="onLoad()">Load</button>
+<button ejs-button (click)="onExport()">Export</button>
+<button ejs-button (click)="onPrint()">Print</button>
+<ejs-uploader (success)="onUploadSuccess($event)" [asyncSettings]='asyncSettings'></ejs-uploader>
+<ejs-diagram #diagram width="1000" height="580px">
+  <e-nodes>
+    <e-node
+      id="terminator"
+      [offsetX]="300"
+      [offsetY]="100"
+      [height]="50"
+      [width]="150"
+      [style]="basicStyle"
+      [shape]="terminator">
+      <e-node-annotations>
+        <e-node-annotation content="Start"></e-node-annotation> 
+      </e-node-annotations>
+    </e-node>
+    <e-node
+      id="input"
+      [offsetX]="300"
+      [offsetY]="200"
+      [height]="50"
+      [width]="200"
+      [style]="basicStyle"
+      [shape]="data">
+      <e-node-annotations>
+        <e-node-annotation content="Enter a number"></e-node-annotation>
+      </e-node-annotations>
+    </e-node>
+    <e-node
+      id="process"
+      [offsetX]="300"
+      [offsetY]="300"
+      [height]="50"
+      [width]="200"
+      [style]="basicStyle"
+      [shape]="decision">
+      <e-node-annotations>
+        <e-node-annotation content="N divisible by 2"></e-node-annotation>
+      </e-node-annotations>
+    </e-node>
+    <e-node
+      id="processYes"
+      [offsetX]="300"
+      [offsetY]="400"
+      [height]="50"
+      [width]="150"
+      [shape]="process"
+      [style]="basicStyle">
+      <e-node-annotations>
+        <e-node-annotation content="Even Number"></e-node-annotation>
+      </e-node-annotations>
+    </e-node>
+    <e-node
+      id="processNo"
+      [offsetX]="550"
+      [offsetY]="300"
+      [height]="50"
+      [width]="150"
+      [shape]="process"
+      [style]="basicStyle"
+      [ports]="ports">
+      <e-node-annotations>
+        <e-node-annotation content="Odd Number"></e-node-annotation>
+      </e-node-annotations>
+    </e-node>
+    <e-node
+      id="end"
+      [offsetX]="300"
+      [offsetY]="500"
+      [height]="50"
+      [width]="150"
+      [shape]="terminator"
+      [style]="basicStyle"
+      [ports]="ports">
+      <e-node-annotations>
+        <e-node-annotation content="End"></e-node-annotation>
+      </e-node-annotations>
+    </e-node>
+  </e-nodes>
+  <e-connectors>
+    <e-connector
+      id="start"
+      sourceID="terminator"
+      targetID="input"
+    ></e-connector>
+    <e-connector
+      id="inputCon"
+      sourceID="input"
+      targetID="process"
+    ></e-connector>
+    <e-connector id="yes" sourceID="process" targetID="processYes">
+      <e-connector-annotations>
+        <e-connector-annotation
+          content="true"
+          alignment="After"
+          segmentAngle="true"
+        ></e-connector-annotation>
+      </e-connector-annotations>
+    </e-connector>
+    <e-connector id="no" sourceID="process" targetID="processNo">
+      <e-connector-annotations>
+        <e-connector-annotation
+          content="false"
+          alignment="Before"
+          [displacement]="displacement"
+          segmentAngle="true"
+        ></e-connector-annotation>
+      </e-connector-annotations>
+    </e-connector>
+    <e-connector
+      id="processno"
+      sourceID="processYes"
+      targetID="end"
+    ></e-connector>
+    <e-connector
+      id="processend"
+      sourceID="processNo"
+      targetID="end"
+      type="Orthogonal"
+      sourcePortID="port1"
+      targetPortID="port2"
+    ></e-connector>
+  </e-connectors>
+</ejs-diagram>
