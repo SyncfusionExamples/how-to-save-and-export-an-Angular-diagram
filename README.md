@@ -2,10 +2,10 @@
 
 A quick start Angular project that shows how to save and export an Angular Diagram component. This project includes a code snippet to save and load the Diagram as a JSON string and file stream. It also includes a code snippet to export the Diagram in PNG format.
 
-The serialization documentation for the Syncfusion Angular Diagram component: 
+The serialization documentation for the Syncfusion&reg; Angular Diagram component: 
 https://ej2.syncfusion.com/angular/documentation/diagram/serialization 
 
-The print and export documentation for the Syncfusion Angular Diagram component: 
+The print and export documentation for the Syncfusion&reg; Angular Diagram component: 
 https://ej2.syncfusion.com/angular/documentation/diagram/export 
 
 Check out the online serialization example for the Angular Diagram component: 
