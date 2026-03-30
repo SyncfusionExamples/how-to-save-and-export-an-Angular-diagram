@@ -7,9 +7,7 @@ import { ButtonModule } from '@syncfusion/ej2-angular-buttons';
 import {  UploaderModule } from '@syncfusion/ej2-angular-inputs';
 
 @NgModule({
-  declarations: [
-    AppComponent
-  ],
+  declarations: [  ],
   imports: [
     BrowserModule,
     DiagramModule,
