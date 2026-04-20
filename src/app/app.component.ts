@@ -1,11 +1,13 @@
 import { Component, ViewEncapsulation, ViewChild } from '@angular/core';
-import { ShapeStyleModel, FlowShapeModel, PointPortModel, DiagramComponent, PrintAndExport, Diagram, IExportOptions } from '@syncfusion/ej2-angular-diagrams';
-import { AsyncSettingsModel } from '@syncfusion/ej2-angular-inputs';
+import { ShapeStyleModel, SymbolPaletteModule,DiagramModule,FlowShapeModel, PointPortModel, DiagramComponent, PrintAndExport, Diagram, IExportOptions } from '@syncfusion/ej2-angular-diagrams';
+import { AsyncSettingsModel,UploaderModule  } from '@syncfusion/ej2-angular-inputs';
 Diagram.Inject(PrintAndExport);
 @Component({
   selector: 'app-root',
   templateUrl: 'app.component.html',
   styleUrls: ['app.component.css'],
+  standalone: true,
+  imports: [DiagramModule,SymbolPaletteModule,UploaderModule],
   encapsulation: ViewEncapsulation.None,
 })
 export class AppComponent {
